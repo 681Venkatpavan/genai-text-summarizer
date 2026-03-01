@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gen AI – Intelligent Text Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Gen AI – Intelligent Text Summarizer</h1>
+
+    <div class="input-section">
+        <form method="POST" enctype="multipart/form-data">
+
+            <textarea name="text" placeholder="Enter your paragraph here..."></textarea>
+
+            <div class="file-upload">
+                <label>Upload PDF</label>
+                <input type="file" name="pdf" accept=".pdf">
+            </div>
+
+            <button type="submit">Generate Summary</button>
+
+        </form>
+    </div>
+
+    {% if expert_summary %}
+    <div class="results-section">
+
+        <div class="card">
+            <h2>Expert Summary</h2>
+            <p>{{ expert_summary }}</p>
+        </div>
+
+        <div class="card">
+            <h2>Simplified Summary</h2>
+            <p>{{ simplified_summary }}</p>
+        </div>
+
+        <div class="card highlight">
+            <h2>Key Insights</h2>
+            <p>{{ key_insights }}</p>
+        </div>
+
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
